@@ -1,0 +1,52 @@
+/* Move pagination to the bottom */
+.swiper-pagination {
+  position: absolute;
+  /* transform: translateY(10%); */
+  z-index: 2;
+  /* transform: translateX(-50%); */
+}
+
+.swiper-navigation {
+  position: absolute;
+  /* transform: translateX('50%'); */
+  z-index: 2;
+  color: black;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: black;
+  border-radius: 50%;
+  border: 2px solid black !important;
+  width: 40px;
+  height: 40px;
+}
+.swiper-button-prev:after,.swiper-button-next:after{
+  font-size: 0;
+}
+.swiper-button-prev {
+  background-image: url('../../assets/images/leftIcon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.swiper-button-next {
+  background-image: url('../../assets/images/rightIcon.svg'); /* Replace with your custom right icon */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+/* Optional: Adjust size or spacing */
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background-color: #D9D9D9 !important;
+  border: 0px !important;
+  /* Adjust bullet spacing */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #9C90C2 !important;
+  /* Change active bullet color (e.g., red) */
+  /* Full opacity for active bullet */
+}
