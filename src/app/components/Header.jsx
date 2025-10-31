@@ -109,14 +109,28 @@ export default function Header(props) {
                   style={{ textDecoration: "none" }}
                 >
                   <Typography
-                    style={{
-                      color: "black",
-                      textDecoration:
-                        isActivePath(menuLinks[key]) && "underline",
+                    sx={{
+                      color: isActivePath(menuLinks[key]) ? "#9C90C2" : "#1A1A1A",
+                      textDecoration: "none",
+                      fontWeight: isActivePath(menuLinks[key]) ? 600 : 500,
+                      fontFamily: "Lato",
+                      position: "relative",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        color: "#9C90C2",
+                      },
+                      "&::after": isActivePath(menuLinks[key]) ? {
+                        content: '""',
+                        position: "absolute",
+                        bottom: -4,
+                        left: 0,
+                        right: 0,
+                        height: 2,
+                        background: "linear-gradient(135deg, #D3AFC9 0%, #9C90C2 100%)",
+                        borderRadius: 1,
+                      } : {},
                     }}
                     variant="body1"
-                    fontWeight={"Medium"}
-                    fontFamily={"Lato"}
                   >
                     {item}
                   </Typography>
@@ -242,7 +256,15 @@ export default function Header(props) {
     <Stack>
       <AppBar
         component="nav"
-        sx={{ background: "#fff", color: "#000", top: 0 }}
+        sx={{ 
+          background: "rgba(255, 255, 255, 0.95)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          color: "#000", 
+          top: 0,
+          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+          borderBottom: "1px solid rgba(0, 0, 0, 0.05)",
+        }}
         position="sticky"
       >
         <Container maxWidth={"lg"} sx={{ px: "0 !important" }}>
@@ -286,14 +308,28 @@ export default function Header(props) {
                         style={{ textDecoration: "none" }}
                       >
                         <Typography
-                          style={{
-                            color: "black",
-                            textDecoration:
-                              isActivePath(menuLinks[key]) && "underline",
+                          sx={{
+                            color: isActivePath(menuLinks[key]) ? "#9C90C2" : "#1A1A1A",
+                            textDecoration: "none",
+                            fontWeight: isActivePath(menuLinks[key]) ? 600 : 500,
+                            fontFamily: "Lato",
+                            position: "relative",
+                            transition: "all 0.3s ease",
+                            "&:hover": {
+                              color: "#9C90C2",
+                            },
+                            "&::after": isActivePath(menuLinks[key]) ? {
+                              content: '""',
+                              position: "absolute",
+                              bottom: -4,
+                              left: 0,
+                              right: 0,
+                              height: 2,
+                              background: "linear-gradient(135deg, #D3AFC9 0%, #9C90C2 100%)",
+                              borderRadius: 1,
+                            } : {},
                           }}
                           variant="body1"
-                          fontWeight={"Medium"}
-                          fontFamily={"Lato"}
                         >
                           {item}
                         </Typography>
@@ -321,15 +357,27 @@ export default function Header(props) {
                 <Stack direction={"row"} gap={{ xs: 1, md: 5 }}>
                   <Button
                     variant="outlined"
-                    sx={{ px: 4 }}
-                    style={{ fontSize: "16px", borderRadius: 0 }}
+                    sx={{ 
+                      px: 4,
+                      fontSize: "16px",
+                      borderRadius: 2,
+                      borderColor: "#9C90C2",
+                      color: "#9C90C2",
+                      fontWeight: 500,
+                      "&:hover": {
+                        borderColor: "#7866AE",
+                        color: "#7866AE",
+                        backgroundColor: "rgba(156, 144, 194, 0.08)",
+                      },
+                    }}
                     startIcon={<VscSparkleFilled />}
                     onClick={() => router.push("/log-in")}
                   >
                     Log In
                   </Button>
                   <StartIconButton
-                    color={"#000"}
+                    color={"#9C90C2"}
+                    textC={"#fff"}
                     text={"Sign Up"}
                     onClick={() => router.push("/sign-up")}
                   />

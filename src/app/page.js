@@ -60,22 +60,40 @@ export default function Home() {
       />
       {/* Service We Provide */}
       <Stack
-        bgcolor={"background.primary"}
-        color={"text.white"}
-        alignItems={"center"}
-        padding={{ xs: 3, md: 6 }}
+        sx={{
+          background: "linear-gradient(135deg, #9C90C2 0%, #7866AE 100%)",
+          color: "#FFFFFF",
+          alignItems: "center",
+          padding: { xs: 4, md: 8 },
+          position: "relative",
+          overflow: "hidden",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: "radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%)",
+            pointerEvents: "none",
+          },
+        }}
       >
-        <Container maxWidth={"lg"}>
+        <Container maxWidth={"lg"} sx={{ position: "relative", zIndex: 1 }}>
           <Stack
-            bgcolor={"background.primary"}
-            color={"text.white"}
             alignItems={"center"}
-            gap={{ xs: 3, md: 6 }}
+            gap={{ xs: 4, md: 6 }}
           >
             <Typography
               fontFamily={"Libre Bodoni"}
-              fontWeight={"SemiBold"}
-              variant="h4"
+              fontWeight={600}
+              variant="h3"
+              sx={{
+                color: "#FFFFFF",
+                textAlign: "center",
+                textShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
+                mb: 1,
+              }}
             >
               Services We Provide
             </Typography>
@@ -93,9 +111,9 @@ export default function Home() {
                       key={key}
                       sx={{
                         opacity: 0,
-                        animation: 'fadeIn 0.2s ease-in forwards',
+                        animation: 'fadeIn 0.6s ease-out forwards',
                         '@keyframes fadeIn': {
-                          '0%': { opacity: 0, transform: 'translateY(-20px)' },
+                          '0%': { opacity: 0, transform: 'translateY(30px)' },
                           '100%': { opacity: 1, transform: 'translateY(0)' }
                         },
                         animationDelay: `${key * 0.1}s`

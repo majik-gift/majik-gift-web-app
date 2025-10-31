@@ -59,12 +59,24 @@ export default function Footer() {
 
   return (
     <Stack
-      bgcolor={"#9C90C2"}
-      position={"relative"}
-      pt={{ xs: 7, md: 10 }}
-      pb={{ xs: 2 }}
-      mt={12}
-      overflow="hidden"
+      sx={{
+        background: "linear-gradient(135deg, #9C90C2 0%, #7866AE 100%)",
+        position: "relative",
+        pt: { xs: 7, md: 10 },
+        pb: { xs: 2 },
+        mt: 12,
+        overflow: "hidden",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: "radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)",
+          pointerEvents: "none",
+        },
+      }}
     >
       <Image
         src={liness}
@@ -133,13 +145,27 @@ export default function Footer() {
                   >
                     <Typography
                       variant="body1"
-                      fontWeight={"Medium"}
+                      fontWeight={isActivePath(menuLinks[key]) ? 600 : 500}
                       fontFamily={"Lato"}
                       sx={{
-                        textDecoration: isActivePath(menuLinks[key])
-                          ? "underline"
-                          : "none",
+                        textDecoration: "none",
                         fontSize: { xs: "0.875rem", sm: "1rem" },
+                        color: "#FFFFFF",
+                        position: "relative",
+                        transition: "all 0.3s ease",
+                        "&:hover": {
+                          color: "#F0DDE6",
+                        },
+                        "&::after": isActivePath(menuLinks[key]) ? {
+                          content: '""',
+                          position: "absolute",
+                          bottom: -2,
+                          left: 0,
+                          right: 0,
+                          height: 2,
+                          background: "#FFFFFF",
+                          borderRadius: 1,
+                        } : {},
                       }}
                     >
                       {item}
@@ -190,14 +216,23 @@ export default function Footer() {
               ].map((social, index) => (
                 <Box
                   key={index}
-                  width={35}
-                  height={35}
+                  width={40}
+                  height={40}
                   borderRadius={"50%"}
-                  bgcolor={"#000"}
+                  bgcolor={"rgba(0, 0, 0, 0.2)"}
+                  backdropFilter="blur(10px)"
                   display={"flex"}
                   justifyContent={"center"}
                   alignItems={"center"}
-                  sx={{ cursor: "pointer" }}
+                  sx={{ 
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      transform: "translateY(-3px) scale(1.1)",
+                      bgcolor: "rgba(0, 0, 0, 0.3)",
+                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                    },
+                  }}
                   component={Link}
                   href={social.href}
                   target="_blank"

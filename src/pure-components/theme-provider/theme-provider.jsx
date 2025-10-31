@@ -31,20 +31,77 @@ const MuiThemeProvider = ({ children }) => {
       ExtraBold: 900,
       button: {
         textTransform: "none",
+        fontWeight: 500,
       },
     },
     palette: {
       mode: mode,
       ...themeMode[mode],
     },
+    shape: {
+      borderRadius: 12,
+    },
+    shadows: [
+      'none',
+      '0px 2px 8px rgba(0, 0, 0, 0.08)',
+      '0px 4px 16px rgba(0, 0, 0, 0.12)',
+      '0px 8px 24px rgba(0, 0, 0, 0.16)',
+      '0px 12px 32px rgba(0, 0, 0, 0.2)',
+      '0px 16px 40px rgba(0, 0, 0, 0.24)',
+      ...Array(19).fill('0px 16px 48px rgba(0, 0, 0, 0.28)'),
+    ],
     components: {
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: "none",
+            borderRadius: 12,
+            fontWeight: 500,
+            padding: "10px 24px",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.12)",
+            "&:hover": {
+              transform: "translateY(-2px)",
+              boxShadow: "0 8px 24px rgba(0, 0, 0, 0.16)",
+            },
+            "&:active": {
+              transform: "translateY(0)",
+            },
+          },
+          contained: {
+            background: "linear-gradient(135deg, #D3AFC9 0%, #9C90C2 100%)",
+            "&:hover": {
+              background: "linear-gradient(135deg, #B288A4 0%, #8A7AB8 100%)",
+            },
+          },
+        },
+      },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            borderRadius: 16,
+            boxShadow: "0 4px 16px rgba(0, 0, 0, 0.12)",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+            "&:hover": {
+              transform: "translateY(-4px)",
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.16)",
+            },
+          },
+        },
+      },
       MuiTableCell: {
         styleOverrides: {
           root: {
-            // "&:last-child":
-            // "&:nth-last-child(-n+2)": {
             textAlign: "center",
-            // },
+          },
+        },
+      },
+      MuiAppBar: {
+        styleOverrides: {
+          root: {
+            backdropFilter: "blur(20px)",
+            background: "rgba(255, 255, 255, 0.9)",
+            boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
           },
         },
       },
@@ -65,44 +122,48 @@ export default MuiThemeProvider;
 
 let themeMode = {
   light: {
-    divider: "#C4C4C4",
+    divider: "#E5E7EB",
     background: {
-      default: "#fff",
+      default: "#FAFAFA",
       primary: "#9C90C2",
-      secondary: "#EFEDF5",
+      secondary: "#F5F3F9",
       third: "#01A43D",
-      colorOfBorder: "#EBEBEB",
+      colorOfBorder: "#E5E7EB",
+      paper: "#FFFFFF",
     },
     primary: {
-      main: "#000000",
+      main: "#9C90C2",
+      light: "#CAC4E0",
+      dark: "#7866AE",
+      contrastText: "#FFFFFF",
     },
     secondary: {
       main: "#D3AFC9",
-      category: "#9C90C229",
-      light: "#CAC4E0",
-      dimLight: "#F3F3F3",
+      category: "rgba(156, 144, 194, 0.16)",
+      light: "#F0DDE6",
+      dimLight: "#F5F5F5",
     },
     text: {
-      primary: "#000", // Adjust this to your preferred primary text color
-      secondary: "#3C3F43",
-      dim: "#0D0D0D",
-      lightGrey: "#C4C4C4",
-      darkGrey: "rgba(102, 102, 102, 1)",
-      heading: "#001646",
-      icon: "rgba(232, 232, 233, 1)",
-      success: "#06B0BA",
-      danger: "#FF5252",
-      paper: "#F3F4F8",
+      primary: "#1A1A1A",
+      secondary: "#4B5563",
+      dim: "#111827",
+      lightGrey: "#9CA3AF",
+      darkGrey: "#6B7280",
+      heading: "#111827",
+      icon: "#9CA3AF",
+      success: "#10B981",
+      danger: "#EF4444",
+      paper: "#FFFFFF",
       about: "#9C90C2",
-      white: "#fff",
-      lightWorkerCardText: "#76726C",
-      unratedStar: "#D9D9D9",
-      ratedStar: "#F8BE02",
+      white: "#FFFFFF",
+      lightWorkerCardText: "#6B7280",
+      unratedStar: "#D1D5DB",
+      ratedStar: "#F59E0B",
     },
     button: {
-      main: "#D3AFC9",
-      light: "#06B0BA",
-      background: "#B9FBFF",
+      main: "#9C90C2",
+      light: "#10B981",
+      background: "#ECFDF5",
     },
   },
   dark: {

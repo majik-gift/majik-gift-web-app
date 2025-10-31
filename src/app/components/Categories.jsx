@@ -5,7 +5,14 @@ import React from "react";
 
 export default function Categories() {
   return (
-    <Stack bgcolor={"secondary.category"} padding={6}>
+    <Stack 
+      sx={{
+        background: "linear-gradient(135deg, rgba(156, 144, 194, 0.08) 0%, rgba(211, 175, 201, 0.08) 100%)",
+        padding: 6,
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       <Container maxWidth={"lg"}>
         <Grid2 container spacing={{ xs: 6, md: 12 }}>
           <Grid2 size={{ xs: 12, sm: 6, md: 3 }}>
@@ -19,7 +26,14 @@ export default function Categories() {
               <Typography
                 fontFamily={"Lato"}
                 variant="h6"
-                fontWeight={"SemiBold"}
+                fontWeight={600}
+                sx={{
+                  color: "#1A1A1A",
+                  transition: "color 0.3s ease",
+                  "&:hover": {
+                    color: "#9C90C2",
+                  },
+                }}
               >
                 Classes & Workshops
               </Typography>
@@ -43,7 +57,14 @@ export default function Categories() {
               <Typography
                 fontFamily={"Lato"}
                 variant="h6"
-                fontWeight={"SemiBold"}
+                fontWeight={600}
+                sx={{
+                  color: "#1A1A1A",
+                  transition: "color 0.3s ease",
+                  "&:hover": {
+                    color: "#9C90C2",
+                  },
+                }}
               >
                 Healers
               </Typography>
@@ -67,7 +88,14 @@ export default function Categories() {
               <Typography
                 fontFamily={"Lato"}
                 variant="h6"
-                fontWeight={"SemiBold"}
+                fontWeight={600}
+                sx={{
+                  color: "#1A1A1A",
+                  transition: "color 0.3s ease",
+                  "&:hover": {
+                    color: "#9C90C2",
+                  },
+                }}
               >
                 Spiritual shop
               </Typography>
@@ -92,7 +120,14 @@ export default function Categories() {
               <Typography
                 fontFamily={"Lato"}
                 variant="h6"
-                fontWeight={"SemiBold"}
+                fontWeight={600}
+                sx={{
+                  color: "#1A1A1A",
+                  transition: "color 0.3s ease",
+                  "&:hover": {
+                    color: "#9C90C2",
+                  },
+                }}
               >
                 Workshops
               </Typography>

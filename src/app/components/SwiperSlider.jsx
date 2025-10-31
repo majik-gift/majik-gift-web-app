@@ -45,8 +45,20 @@ export default function SwipperSlider() {
               justifyContent: "flex-start",
               alignItems: "center",
               background: `url(${banner?.banner_image}) center/cover no-repeat`,
+              position: "relative",
             }}
           >
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: "linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%)",
+                zIndex: 1,
+              }}
+            />
             <Stack
               padding={{ xs: "0px 20px", md: "0px 100px" }}
               width="100%"
@@ -62,22 +74,31 @@ export default function SwipperSlider() {
                   fontFamily="Dancing Script"
                   sx={{
                     fontWeight: "bold",
-                    color: banner?.button_text_color,
+                    color: banner?.button_text_color || "#FFFFFF",
                     fontSize: {
-                      xs: "2rem", // ~h4 on small screens
-                      sm: "2.5rem", // ~h3
-                      md: "3rem", // ~h2
-                      lg: "3.5rem", // ~h1
-                      xl: "4rem", // extra large screens
+                      xs: "2.5rem",
+                      sm: "3rem",
+                      md: "3.5rem",
+                      lg: "4rem",
+                      xl: "4.5rem",
                     },
+                    textShadow: "0 2px 12px rgba(0, 0, 0, 0.3)",
+                    position: "relative",
+                    zIndex: 2,
                   }}
                 >
                   {banner?.title}
                 </Typography>
 
                 <Typography
-                  sx={{ typography: { xs: "body1", md: "h5" } }}
-                  color="white"
+                  sx={{ 
+                    typography: { xs: "body1", md: "h5" },
+                    color: "#FFFFFF",
+                    textShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
+                    position: "relative",
+                    zIndex: 2,
+                    maxWidth: { xs: "100%", md: "80%" },
+                  }}
                 >
                   {banner?.description}
                 </Typography>

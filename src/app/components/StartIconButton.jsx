@@ -18,31 +18,44 @@ export default function StartIconButton({
       onClick={onClick}
       type={type && "submit"}
       sx={{
-        bgcolor: color || "#fff",
-        color: color ? textC || "#fff" : "#000",
-        fontWeight: "regular",
+        bgcolor: color || "transparent",
+        background: color ? color : "linear-gradient(135deg, #D3AFC9 0%, #9C90C2 100%)",
+        color: color ? (textC || "#fff") : "#fff",
+        fontWeight: 500,
         fontFamily: "Lato",
-
-        borderRadius: "0px",
+        borderRadius: 2,
         fontSize: {
-          xs: "0.75rem", // ~12px on extra-small screens
-          sm: "0.875rem", // ~14px
-          md: "1rem", // ~16px
+          xs: "0.875rem",
+          sm: "0.9375rem",
+          md: "1rem",
         },
         px: {
-          xs: 2,
-          sm: 2,
-          md: 2,
+          xs: 3,
+          sm: 4,
+          md: 4,
         },
         py: {
-          xs: 1,
-          sm: 1,
+          xs: 1.25,
+          sm: 1.5,
         },
-        boxShadow: "none",
+        boxShadow: "0 4px 16px rgba(156, 144, 194, 0.3)",
         minWidth: {
-          xs: "100px",
-          sm: "120px",
-          md: "120px",
+          xs: "120px",
+          sm: "140px",
+          md: "140px",
+        },
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "&:hover": {
+          transform: "translateY(-2px)",
+          boxShadow: "0 8px 24px rgba(156, 144, 194, 0.4)",
+          background: color ? `linear-gradient(135deg, ${color}dd 0%, ${color}aa 100%)` : "linear-gradient(135deg, #B288A4 0%, #8A7AB8 100%)",
+        },
+        "&:active": {
+          transform: "translateY(0)",
+        },
+        "&:disabled": {
+          opacity: 0.6,
+          transform: "none",
         },
       }}
       startIcon={<VscSparkleFilled />}
